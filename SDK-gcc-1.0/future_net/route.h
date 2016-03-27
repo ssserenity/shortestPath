@@ -17,13 +17,13 @@ using namespace std;
 #define MAX_VERTEX_NUM 600
 #define INFINITY_DISTANCE 9999
 /*Define the data type used in this file*/ 
-typedef unsigned short WeightType;      // Weight type  权重数据类型 
-typedef unsigned short DataType;       //  Data type 顶点所储存的数据
-typedef unsigned short Vertex;          // Vertex type 顶点编号数据类型 
-typedef unsigned short IDType;          // the  data type of ID of edge 边的编号数据类型 
+typedef unsigned short WeightType;      // Weight type  
+typedef unsigned short DataType;       //  Data type
+typedef unsigned short Vertex;          // Vertex type 
+typedef unsigned short IDType;          // the  data type of ID of edge 
 
 /*Define the structure of adjacement element */
-/*定义邻接元素的结构体*/ 
+
 typedef struct AdjVNode *PtrToAdjVNode;
 struct AdjVNode {
 	Vertex AdjV;
@@ -33,14 +33,14 @@ struct AdjVNode {
 };
 
 /*Define the adjacement list in the form of array*/ 
-/*以数组形式定义了一张邻接表*/
+
 typedef struct VNode {
 	PtrToAdjVNode firstEdge;
 }AdjList[MAX_VERTEX_NUM];
-//含义是：定义一个类型别名adjlist，这个类型是一个结构体类型为元素类型的长度为MaxVertexNum的数组
+
 
 /*Define the structure of graph in the form of link list*/
-/*链表表示的图的结构体定义*/
+
 typedef struct GNode *PtrToGNode;
 struct GNode {
 	int numVertex;
@@ -50,7 +50,7 @@ struct GNode {
 typedef PtrToGNode LGraph;
 
 /*Define the structure of edge*/
-/*定义边Edge*/
+
 typedef struct ENode *ptrToENode;
 struct ENode {
 	IDType edgeID;
@@ -88,7 +88,7 @@ Edge CreateEdge(int* array);
 LGraph BuildGraph(int numVertex, vector<Edge> all_edges);
 
 /*Initialize a graph with numV vertex but without any edge*/
-/*初始化一个有numV个顶点的但是没有边的图*/
+
 LGraph CreateGraph(int numV);
 
 /*Insert an edge to the graph*/

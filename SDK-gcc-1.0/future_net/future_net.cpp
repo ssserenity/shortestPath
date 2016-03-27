@@ -12,6 +12,7 @@ int main(int argc, char *argv[])
     int demand_num;
 
     char *topo_file = argv[1];
+
     edge_num = read_file(topo, 5000, topo_file);
     if (edge_num == 0)
     {
@@ -19,6 +20,7 @@ int main(int argc, char *argv[])
         return -1;
     }
     char *demand_file = argv[2];
+    
     demand_num = read_file(&demand, 1, demand_file);
     if (demand_num != 1)
     {

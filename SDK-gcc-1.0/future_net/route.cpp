@@ -1,25 +1,16 @@
-#include <vector>
-#include<iostream>
-#include<set> 
-#include<queue>
-#include<string>
-#include<cstring>
-#include <stdlib.h>     /* atoi */
-#include<stack>
-
 #include "route.h"
 #include "lib_record.h"
 #include <stdio.h>
 
 
-/*---------------------------------------------------------------------------------------------------*/
-//ÄãÒªÍê³ÉµÄ¹¦ÄÜ×ÜÈë¿Ú
 void search_route(char *topo[5000], int edge_num, char *demand)
 {
 	/*Create all the edges*/
 	vector<Edge> all_edges = BuildAllEdges(topo,edge_num);
 	set<Vertex> allVertexSet = FindVertexSet(all_edges);
 	int numVertex = allVertexSet.size();
+
+	
 	/*Build the graph*/
 	LGraph gra = BuildGraph(numVertex,all_edges);
 	/*Assign Id to the source vertex and destination vertex, and build the must visited vertex set S 
@@ -191,7 +182,7 @@ LGraph BuildGraph(int numV, vector<Edge> all_edges)
 	return gra;
 }
 /*Initialize a graph with numV vertex but without any edge*/
-/*³õÊ¼»¯Ò»¸öÓĞnumV¸ö¶¥µãµÄµ«ÊÇÃ»ÓĞ±ßµÄÍ¼*/
+
 LGraph CreateGraph(int numV)
 {
 	Vertex v, w;
@@ -252,12 +243,12 @@ set<Vertex> BuildUnVisitVertexSet(set<Vertex> P_, set<Vertex> visit_set)
 /*-------------------------------------------------------------------------------------*/ 
 
 /*Use DFS algorithm to check if the source vertex and destination vertex are connected*/
-bool DFS(LGraph graph,Vertex p_source,Vertex p_dest)   //´Ó¶¥µãp_source³ö·¢Éî¶ÈÓÅÏÈ	ËÑË÷Í¼
+bool DFS(LGraph graph,Vertex p_source,Vertex p_dest)  
 {
 	
-	bool *check = new bool[graph->numVertex]; /*±êÊ¶·û£¬±íÊ¾¸ÃµãÊÇ·ñÒÑ¾­¼ì²é*/
-	bool *isIn = new bool[graph->numVertex];  /*±êÊ¶·û£¬±íÊ¾¸Ã¶¥µãÊÇ·ñÓëp_sourceÁ¬Í¨ */
-	for (int i = 0; i < graph->numVertex; i++) {  //³õÊ¼»¯±êÊ¶·û
+	bool *check = new bool[graph->numVertex]; 
+	bool *isIn = new bool[graph->numVertex];  
+	for (int i = 0; i < graph->numVertex; i++) {  
 		check[i] = false;
 		isIn[i] = false;
 	}
@@ -270,7 +261,7 @@ bool DFS(LGraph graph,Vertex p_source,Vertex p_dest)   //´Ó¶¥µãp_source³ö·¢Éî¶ÈÓ
 	}
 }
 /*The recursion function part of DFS algorithm*/
-/*µİ¹éDFS*/
+
 void DFSRecur(LGraph graph,Vertex p_dest,Vertex v,bool check[],bool isIn[])
 {
 	if (check[v]||graph->Graph[v].firstEdge == NULL) {
